@@ -12,6 +12,10 @@ const app = express();
 // Routers
 app.use("/api/v1/books", require("./routes/book"));
 
+// Error Routers
+app.use(notFound);
+app.use(errorHandler);
+
 const portNumber = process.env.PORT || 5000;
 app.listen(portNumber, () => {
   console.log(`Hello, Server is running on port ${PORT}`);
